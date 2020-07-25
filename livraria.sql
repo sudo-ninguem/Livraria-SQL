@@ -1,0 +1,69 @@
+CREATE DATABASE LIVRARIA; /* Criamos aqui o banco de dados da livraria */
+
+USE LIVRARIA; 
+
+CREATE TABLE LIVROS (  /* Criamos a tabela livraria */
+
+	NOME VARCHAR (100),
+	AUTOR VARCHAR (100),
+	SEXO CHAR (1),
+	PAGINAS INT (5),
+	EDITORA VARCHAR (30),
+	VALOR FLOAT (10,3),
+	UF CHAR (2),
+	ANO INT (4)
+
+);  
+
+/* INSERINDO OS DADOS NA TABELA */
+
+INSERT INTO LIVROS VALUES ('Cavaleiro Real', 'Ana Claudia', 'F', 465, 'Atlas', 49.9, 'RJ', 2009);
+
+INSERT INTO LIVROS VALUES ('SQL para leigos', 'João Nunes', 'M', 450, 'Addison', 98.0, 'SP', 2018);
+
+INSERT INTO LIVROS VALUES ('Receitas Caseiras', 'Celia Tavares', 'F', 210, 'Atlas', 45.0, 'RJ', 2008);
+
+INSERT INTO LIVROS VALUES ('Pessoas Efetivas', 'Eduardo Santos', 'M', 390, 'Beta', 78.99, 'RJ', 2018);
+
+INSERT INTO LIVROS VALUES ('Habitos Saudáveis', 'Eduardo Santos', 'M', 630, 'Beta', 150.98, 'RJ', 2019);
+
+INSERT INTO LIVROS VALUES ('A Casa Marrom', 'Hermes Macedo', 'M', 250, 'Bubba', 60.0, 'MG', 2016); 
+
+INSERT INTO LIVROS VALUES ('Estacio Querido', 'Geraldo Francisco', 'M', 310, 'Insignia', 100.0, 'ES', 2015);
+
+INSERT INTO LIVROS VALUES ('Pra sempre amigas', 'Leda Silva', 'F', 510, 'Insignia', 78.98, 'ES', 2011);
+
+INSERT INTO LIVROS VALUES ('Copas Inesqueciveis', 'Marco Alcantara', 'M', 200, 'Larson', 130.98, 'RS', 2018);
+
+INSERT INTO LIVROS VALUES ('O poder da mente', 'Clara Mafra', 'F', 120, 'Continental', 56.58, 'SP', 2017);
+
+
+/* QUESTTÕES */
+
+/* 1º SELECIONAR TODOS OS LIVROS */
+
+SELECT* FROM LIVROS;
+
+/* 2º TRAZER O NOME DO LIVRO E EDITORA*/
+
+SELECT NOME, EDITORA FROM LIVROS;
+
+/* 3º O NOME DO LIVRO E A UF DOS LIVROS PUBLICADO POR AUTORES DO SEXO MASCULINO*/
+
+SELECT NOME, UF FROM LIVROS
+WHERE SEXO = 'M'; 
+
+/* 4º TRAZER O NOME DO LIVRO E O NUMERO DE PAGINAS DOS LIVROS PUBLICADOS POR AUTORES DO SEXO FEMININO*/
+
+SELECT NOME, PAGINAS FROM LIVROS
+WHERE SEXO = 'F'; 
+
+/* 5º TRAZER O VALOR DOS LIVROS DAS EDITORAS DE SP*/
+
+SELECT VALOR FROM LIVROS
+WHERE UF = 'SP'; 
+
+/* 6º TRAZER OS DADOS DOS AUTORES DO SEXO MASCULINO QUE TIVERAM LIVROS PUBLICADOS POR SAO PAULO OU RIO DE JANEIRO */
+
+SELECT AUTOR, SEXO, UF FROM LIVROS 
+WHERE SEXO = 'M' AND UF = 'SP' OR UF = 'RJ'; 
